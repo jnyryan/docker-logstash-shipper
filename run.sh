@@ -1,7 +1,6 @@
 #!/bin/bash
-CFG=${CFG:-}
-RM_HOST=${RM_HOST:-127.0.0.1}
-EMBEDDED="false"
+
+RMQ_HOST=${RM_HOST:-127.0.0.1}
 
 # Create config
 
@@ -23,7 +22,7 @@ filter {
 }
 output {
     amqp {
-        host => "54.76.2.127"
+        host => "127.0.0.1"
         exchange_type => direct
         key => "logstash-routing-key"
         durable => "true"
@@ -33,4 +32,4 @@ output {
 }
 EOF
 
-java -jar /opt/logstash.jar agent -f /opt/logstash.conf
+/opt/logstash/bin/logstash -f /etc/logstash/conf.d/logstash.conf
