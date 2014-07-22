@@ -22,7 +22,7 @@ filter {
 }
 output {
     amqp {
-        host => "127.0.0.1"
+        host => "IP_ADDRESS"
         exchange_type => direct
         key => "logstash-routing-key"
         durable => "true"
@@ -31,5 +31,10 @@ output {
     }
 }
 EOF
+
+
+sed 's/IP_ADDRESS/'"$RMQ_HOST"'/' /etc/logstash/conf.d/logstash.conf
+
+cat /etc/logstash/conf.d/logstash.conf
 
 /opt/logstash/bin/logstash -f /etc/logstash/conf.d/logstash.conf
