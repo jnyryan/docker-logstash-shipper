@@ -25,6 +25,7 @@ sudo sed -i '$acomplete -F _docker docker' /etc/bash_completion.d/docker.io
 #docker build -t shipper_img /vagrant/.
 #docker run --name shipper -d -v /var/log:/var/log -e RABBITMQ_SERVER="127.0.0.1" -t shipper_img
 
+exit
 ####################
 # Test by Installing logstash locally
 apt-get install -y nginx
