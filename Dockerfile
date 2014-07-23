@@ -20,5 +20,6 @@ ADD ./etc/logstash.conf /etc/logstash/conf.d/logstash.conf
 ADD run.sh /usr/local/bin/run
 RUN chmod +x /usr/local/bin/run
 RUN rm -rf /tmp/*
+RUN mkdir -p /tmp/etc
 
 CMD ["/usr/local/bin/run"]
